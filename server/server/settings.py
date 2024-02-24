@@ -42,9 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'passes.apps.PassesConfig',
     "allauth",
+    "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
-    "allauth.account",
 ]
 
 MIDDLEWARE = [
@@ -149,7 +149,7 @@ SITE_ID = 3
 LOGIN_URL = "/accounts/google/login/"
 LOGIN_REDIRECT_URL = "/"
 LOGIN_EXEMPT_URLS = ["/admin/*"]
-
+SOCIALACCOUNT_AUTO_SIGNUP = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 

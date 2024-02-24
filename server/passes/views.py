@@ -13,11 +13,14 @@ def home(request):
     pass_issued = PassIssued.objects.filter(email=email).first()
     context=""
     if(pass_requested):
-        context = "You have requested a pass on " + str(pass_requested.requested_at)
+        date_time = pass_requested.requested_at.strftime("%d-%m-%Y %H:%M:%S")
+        context = "You have requested a pass on " + str(date_time)
     elif(pass_issued):
-        context = "You have been issued a pass on " + str(pass_issued.issued_at)
+        date_time = pass_issued.issued_at.strftime("%d-%m-%Y %H:%M:%S")
+        context = "You have been issued a pass on " + str(date_time)
     else:
         if(request.method == "POST"):
-            PassRequested.objects.create(email=email)
-            context = "Pass requested successfully"
+            PassRequested.objects.create(name=request.user.first_name, email=request.user.email)
+            requested_pass_time = PassRequested.objects.filter(email=email).first().requested_at.strftime("%d-%m-%Y %H:%M:%S")
+            context = "You have requested a pass on " + str(requested_pass_time)
     return render(request, "home.html", {"context": context})

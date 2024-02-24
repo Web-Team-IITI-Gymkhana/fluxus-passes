@@ -147,8 +147,8 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 3
-LOGIN_URL = "/accounts/google/login/"
-LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "/passes-ishaan-ws-80/accounts/google/login/"
+LOGIN_REDIRECT_URL = "/passes-ishaan-ws-80/"
 LOGIN_EXEMPT_URLS = ["/admin/*"]
 SOCIALACCOUNT_AUTO_SIGNUP = True
 # Static files (CSS, JavaScript, Images)

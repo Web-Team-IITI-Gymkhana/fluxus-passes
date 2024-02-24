@@ -1,0 +1,4 @@
+Django==5.0.1
+Django==5.0.2
+django_allauth==0.61.1
+django_environ==0.11.2
